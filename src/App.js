@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import AppRoutes from './shared/routes/AppRoutes';
+import AdminContext from './shared/contexts/AdminContext';
+import { apiGet } from './shared/services/apiRequests';
+import { GET_CURRENT_ADMIN_URL } from './shared/constants/urls';
+
+
 
 function App() {
+  const [currentAdmin, setCurrentAdmin] = useState(null);
+  const [isRequestToGetCurrentAdminDone, setIsRequestToGetCurrentAdminDone] = useState(false);
+  const updateCurrentAdmin = (updatedCurrentAdmin) => {
+    if (updatedCurrentAdmin) {
+      updatedCurrentAdmin.password = "******";
+    }
+    setCurrentAdmin(updatedCurrentAdmin);
+  }
+  const getCurrentAdmin = async () => {
+    try {
+      if (localStorage.getItem('Authorization')) {
+        const admin = await apiGet(GET_CURRENT_ADMIN_URL, "sendToken");
+        if (admin) {
+          updateCurrentAdmin(admin);
+        }
+      }
+    } catch (e) {
+      console.error("Invalid token " + JSON.stringify(e));
+    }
+    setIsRequestToGetCurrentAdminDone(true);
+  }
+
+  useEffect(() => {
+    getCurrentAdmin();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AdminContext.Provider value={{ currentAdmin, updateCurrentAdmin, isRequestToGetCurrentAdminDone }}>
+      <AppRoutes />
+    </AdminContext.Provider>
   );
 }
 

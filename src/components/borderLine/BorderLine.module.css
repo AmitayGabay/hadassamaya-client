@@ -1,0 +1,18 @@
+.wrapsHr {
+    padding: 1px 0;
+}
+
+.oneHr {
+    border-top: 2px solid black;
+    margin: 0;
+}
+
+.twoHr {
+    border-top: 4px dotted black;
+    margin: 0;
+}
+
+.threeHr {
+    border-top: 2px solid black;
+    margin: 0;
+}

@@ -1,0 +1,15 @@
+.wrapsUl {
+    display: flex;
+    justify-content: center;
+}
+
+.ul {
+    padding: 8px;
+    margin: 8px;
+}
+
+.li {
+    max-width: 800px;
+    font-weight: 500;
+    font-size: 14px;
+}

@@ -1,0 +1,16 @@
+.main {
+    background: #fff;
+    padding-top: 24px;
+}
+
+.flexBox {
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapsDetails {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+}

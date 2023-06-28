@@ -1,0 +1,91 @@
+.header {
+    min-height: 150px;
+    background: #ccb490;
+}
+
+.oneSection {
+    min-height: 200px;
+    background: #fff;
+}
+
+.secondSection {
+    min-height: 350px;
+    background: rgb(151, 214, 208);
+}
+
+.flexBox {
+    margin: 0 auto;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.box {
+    flex: 1;
+    min-height: 200px;
+    color: #fff;
+    text-align: center;
+}
+
+.pink {
+    background: rgb(172, 67, 102);
+}
+
+.turquoise {
+    background: rgb(28, 147, 135);
+}
+
+.yellow {
+    background: rgb(193, 175, 16);
+}
+
+.purple {
+    background: rgb(117, 11, 162);
+}
+
+.thirdSection {
+    background: #fff;
+    min-height: 350px;
+}
+
+.imgFlexBox {
+    margin: 0 auto;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    padding-bottom: 16px;
+}
+
+.imgBox {
+    flex: 1;
+    min-height: 200px;
+    color: black;
+    text-align: center;
+}
+
+.img {
+    border-radius: 50%;
+}
+
+.commonQuestions {
+    background: rgb(151, 214, 208);
+    min-height: 350px;
+}
+
+.questions {
+    margin: 0 auto;
+    width: 800px;
+    padding-bottom: 24px;
+}
+
+.gallery {
+    background: #fff;
+    padding: 48px 0;
+}
+
+.contact {
+    background: rgb(151, 214, 208);
+}
