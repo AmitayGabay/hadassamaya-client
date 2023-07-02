@@ -1,0 +1,67 @@
+.manager {
+    min-height: 65vh;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.headOfTable {
+    background: rgb(30, 161, 148);
+    color: whitesmoke;
+}
+
+.th, .td {
+    padding: 20px;
+    text-align: center;
+    border: solid black 1px;
+    max-width: 400px;
+}
+
+.edited {
+    background: #ccc;
+}
+
+.regular {
+    background: whitesmoke;
+}
+
+.error {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.done:hover {
+    cursor: pointer;
+    background: #7b1fa2;
+}
+
+.clear:hover {
+    cursor: pointer;
+    background: #7b1fa2;
+}
+
+@media (max-width: 1000px) {
+    .th, .td {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .th, .td {
+        font-size: 12px;
+        padding: 2px;
+    }
+}
+
+@media (max-width: 550px) {
+    .th, .td {
+        font-size: 8px;
+        padding: 0;
+    }
+
+    .btn {
+        padding: 0;
+        font-size: 8px;
+    }
+}

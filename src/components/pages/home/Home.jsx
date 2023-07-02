@@ -1,16 +1,19 @@
-import React from 'react';
+import { useRef } from 'react';
 import Sliders from "../../sliders/Sliders";
 import Title from "../../title/Title";
 import Text from "../../text/Text";
 import BorderLine from "../../borderLine/BorderLine";
 import Main from "../../main/Main";
 import hadassaPic from "../../../shared/assets/images/hani.jpg";
-import mayaPic from "../../../shared/assets/images/hani.jpg";
+import mayaPic from "../../../shared/assets/images/hofit.jpg";
 import { Card } from "@mui/material";
 import Question from "../../question/Question";
 import Gallery from "../../gallery/Gallery";
 import Contact from "../../contact/Contact";
 import style from './Home.module.css';
+import Header from '../../header/Header';
+import Footer from '../../footer/Footer';
+import CustomButton from '../../customButton/CustomButton';
 
 const questions = [
     {
@@ -57,14 +60,18 @@ const questions = [
 
 
 const Home = () => {
+    const sectionRef = useRef(null);
+
+    const scrollToContactSection = () => {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <div>
-            <header className={style.header}>
-                <Title titlesArr={[
-                    { h1: "סדנת NLP בקיץ" },
-                    { h2: "בוסט ביטחון עצמי לבנות נוער" }
-                ]} />
-            </header>
+            <Header />
+            <div className={style.contactButton}>
+                <CustomButton text='צרו קשר' func={scrollToContactSection} />
+            </div>
             <section className={style.oneSection}>
                 <Text textsArr={[
                     `"הכוח שבנו" היא סדנה חוויתית ומהנה, המספקת לנערות הכוונה וכלים ליצירת קשרים חברתיים והתכווננות מחודשת לקראת שנת הלימודים החדשה.`,
@@ -161,11 +168,12 @@ const Home = () => {
             <section className={style.gallery}>
                 <Gallery />
             </section>
-            <section className={style.contact}>
+            <section ref={sectionRef} className={style.contact}>
                 <BorderLine />
                 <Contact />
                 <BorderLine />
             </section>
+            <Footer />
         </div>
     )
 }

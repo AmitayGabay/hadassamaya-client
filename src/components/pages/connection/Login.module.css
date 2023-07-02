@@ -1,14 +1,7 @@
-.error_mes {
-    background-color: lightpink;
-    color: firebrick;
-    font-weight: bold;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
 .logIn {
-    min-height: 100vh;
-    background-color: rgb(158, 35, 76);
+    min-height: 65vh;
+    padding: 16px;
+    background: rgb(151, 214, 208);
     color: #fff;
 }
 
@@ -22,6 +15,14 @@
     justify-content: flex-start;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.error_mes {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .form {
@@ -60,4 +61,13 @@
 
 .center {
     text-align: center;
+}
+
+.connected {
+    padding-top: 24px;
+}
+
+.link {
+    color: black;
+    font-weight: bold;
 }

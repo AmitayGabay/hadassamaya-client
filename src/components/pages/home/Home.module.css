@@ -1,6 +1,7 @@
-.header {
-    min-height: 150px;
-    background: #ccb490;
+.contactButton {
+    position: fixed;
+    top: 85px;
+    z-index: 1;
 }
 
 .oneSection {

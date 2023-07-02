@@ -1,0 +1,18 @@
+.header {
+    min-height: 200px;
+    background: #ccb490;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.admin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    width: 200px;
+}

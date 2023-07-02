@@ -56,7 +56,6 @@ const Contact = () => {
                 phone: phone,
                 message: message
             }
-            console.log(contactRequest);
             await apiPost(CREATE_CLIENT_URL, contactRequest);
             setSuccess(true);
             setFirstName('');
@@ -188,14 +187,14 @@ const Contact = () => {
                         <p className={style.p}>נייד- <a className={style.link} href="tel:052-412-5553">052-4125553</a></p>
                         <div className={style.wrapsIcons}>
                             <a href="https://wa.me/972524125553" target="_blank">
-                                <WhatsAppIcon fontSize="large" color="secondary" />
+                                <WhatsAppIcon className={style.whatsappIcon} fontSize="large" color="secondary" />
                             </a>
                             <a href="https://www.facebook.com/people/%D7%94%D7%93%D7%A1%D7%94-%D7%92%D7%91%D7%90%D7%99/100000412115830/"
                                 target="_blank">
-                                <FacebookIcon fontSize="large" color="secondary" />
+                                <FacebookIcon className={style.facebookIcon} fontSize="large" color="secondary" />
                             </a>
                             <a href="https://www.instagram.com/hadassa_sp/" target="_blank">
-                                <InstagramIcon fontSize="large" color="secondary" />
+                                <InstagramIcon className={style.instagramIcon} fontSize="large" color="secondary" />
                             </a>
                         </div>
                     </div>
@@ -206,14 +205,14 @@ const Contact = () => {
                         <p className={style.p}>נייד- <a className={style.link} href="tel:054-228-1720">054-2281720</a></p>
                         <div className={style.wrapsIcons}>
                             <a href="https://wa.me/972542281720" target="_blank">
-                                <WhatsAppIcon fontSize="large" color="secondary" />
+                                <WhatsAppIcon className={style.whatsappIcon} fontSize="large" color="secondary" />
                             </a>
                             <a href="https://www.facebook.com/maya.don.3"
                                 target="_blank">
-                                <FacebookIcon fontSize="large" color="secondary" />
+                                <FacebookIcon className={style.facebookIcon} fontSize="large" color="secondary" />
                             </a>
                             <a href="https://www.instagram.com/maya.don.1/" target="_blank">
-                                <InstagramIcon fontSize="large" color="secondary" />
+                                <InstagramIcon className={style.instagramIcon} fontSize="large" color="secondary" />
                             </a>
                         </div>
                     </div>

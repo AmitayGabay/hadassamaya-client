@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ADMIN_LOGIN_URL } from "../constants/urls";
 
 const login = async (url, adminname, password) => {
     try {
@@ -10,19 +9,18 @@ const login = async (url, adminname, password) => {
                 withCredentials: true,
             }
         );
-        localStorage.setItem("token", res.headers.authorization);
         return res.data;
     } catch (err) {
         throw err;
     }
 };
 
-const apiGet = async (url, sendToken) => {
+const apiGet = async (url) => {
     try {
         let { data } = await axios({
             method: "GET",
             url,
-            params: sendToken ? { Authorization: localStorage.getItem("Authorization") } : undefined
+            withCredentials: true
         })
         return data;
     }
@@ -31,13 +29,13 @@ const apiGet = async (url, sendToken) => {
     }
 }
 
-const apiPost = async (url, body, sendToken) => {
+const apiPost = async (url, body) => {
     try {
         let { data } = await axios({
             method: "POST",
             url,
-            data: body,
-            params: sendToken ? { Authorization: localStorage.getItem("Authorization") } : undefined
+            withCredentials: true,
+            data: body
         })
         return data;
     }
@@ -46,13 +44,13 @@ const apiPost = async (url, body, sendToken) => {
     }
 }
 
-const apiPut = async (url, body, sendToken) => {
+const apiPut = async (url, body) => {
     try {
         let { data } = await axios({
             method: "PUT",
             url,
-            data: body,
-            params: sendToken ? { Authorization: localStorage.getItem("Authorization") } : undefined
+            withCredentials: true,
+            data: body
         })
         return data;
     }
@@ -61,13 +59,13 @@ const apiPut = async (url, body, sendToken) => {
     }
 }
 
-const apiDelete = async (url, body = {}, sendToken) => {
+const apiDelete = async (url, body = {}) => {
     try {
         let { data } = await axios({
             method: "DELETE",
             url,
-            data: body,
-            params: sendToken ? { Authorization: localStorage.getItem("Authorization") } : undefined
+            withCredentials: true,
+            data: body
         })
         return data;
     }

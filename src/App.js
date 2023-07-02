@@ -4,29 +4,22 @@ import AdminContext from './shared/contexts/AdminContext';
 import { apiGet } from './shared/services/apiRequests';
 import { GET_CURRENT_ADMIN_URL } from './shared/constants/urls';
 
-
-
 function App() {
   const [currentAdmin, setCurrentAdmin] = useState(null);
-  const [isRequestToGetCurrentAdminDone, setIsRequestToGetCurrentAdminDone] = useState(false);
-  const updateCurrentAdmin = (updatedCurrentAdmin) => {
-    if (updatedCurrentAdmin) {
-      updatedCurrentAdmin.password = "******";
-    }
-    setCurrentAdmin(updatedCurrentAdmin);
-  }
+  const [isRequestCompleted, setIsRequestCompleted] = useState(false);
+
   const getCurrentAdmin = async () => {
     try {
-      if (localStorage.getItem('Authorization')) {
-        const admin = await apiGet(GET_CURRENT_ADMIN_URL, "sendToken");
-        if (admin) {
-          updateCurrentAdmin(admin);
-        }
-      }
-    } catch (e) {
-      console.error("Invalid token " + JSON.stringify(e));
+      const admin = await apiGet(GET_CURRENT_ADMIN_URL);
+      updateCurrentAdmin(admin);
+    } catch (err) {
+      console.log("You have regular user permissions");
     }
-    setIsRequestToGetCurrentAdminDone(true);
+    setIsRequestCompleted(true);
+  }
+
+  const updateCurrentAdmin = (admin) => {
+    setCurrentAdmin(admin);
   }
 
   useEffect(() => {
@@ -34,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <AdminContext.Provider value={{ currentAdmin, updateCurrentAdmin, isRequestToGetCurrentAdminDone }}>
+    <AdminContext.Provider value={{ currentAdmin, updateCurrentAdmin, isRequestCompleted }}>
       <AppRoutes />
     </AdminContext.Provider>
   );
