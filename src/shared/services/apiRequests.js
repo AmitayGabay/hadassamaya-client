@@ -15,6 +15,20 @@ const login = async (url, adminname, password) => {
     }
 };
 
+const logout = async (url) => {
+    try {
+        const res = await axios.delete(
+            `${url}`,
+            {
+                withCredentials: true,
+            }
+        );
+        return res.data;
+    } catch (err) {
+        throw err;
+    }
+};
+
 const apiGet = async (url) => {
     try {
         let { data } = await axios({
@@ -76,6 +90,7 @@ const apiDelete = async (url, body = {}) => {
 
 export {
     login,
+    logout,
     apiGet,
     apiPost,
     apiPut,

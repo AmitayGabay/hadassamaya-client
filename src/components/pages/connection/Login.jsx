@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import style from "./Login.module.css";
-import { login } from "../../../shared/services/apiRequests";
-import { ADMIN_LOGIN_URL } from "../../../shared/constants/urls";
+import { login, logout } from "../../../shared/services/apiRequests";
+import { ADMIN_LOGIN_URL, ADMIN_LOGOUT_URL } from "../../../shared/constants/urls";
 import { useNavigate } from "react-router-dom";
 import AdminContext from "../../../shared/contexts/AdminContext";
 import Header from "../../header/Header";
@@ -10,7 +10,7 @@ import BorderLine from "../../borderLine/BorderLine";
 
 function Login() {
     const navigate = useNavigate();
-    const { updateCurrentAdmin } = useContext(AdminContext);
+    const { updateCurrentAdmin, currentAdmin } = useContext(AdminContext);
     const adminRef = useRef();
     const errorRef = useRef();
 
@@ -36,15 +36,29 @@ function Login() {
             navigate("/manager");
         } catch (e) {
             if (!e.response) {
-                setErrorMessage("No Server Response");
-            } else if (e.response.status === 403) {
-                setErrorMessage("Incorrect adminname Or Password");
+                setErrorMessage("השרת אינו מגיב");
             } else {
-                setErrorMessage("Authentication Failed");
+                setErrorMessage("שם מנהל או סיסמה שגויים");
             }
             errorRef.current.focus();
         }
     };
+
+    const handleLogout = async () => {
+        try {
+            const res = await logout(ADMIN_LOGOUT_URL);
+            console.log(res);
+            updateCurrentAdmin(null);
+            navigate("/");
+        } catch (e) {
+            if (!e.response) {
+                setErrorMessage("השרת אינו מגיב");
+            } else {
+                setErrorMessage("היציאה מהחשבון נכשלה");
+            }
+            errorRef.current.focus();
+        }
+    }
 
     return (
         <>
@@ -76,13 +90,21 @@ function Login() {
                             required
                         />
                         <button className={style.button} type="submit" disabled={!adminname.trim().length || !password.trim().length}>
-                            היכנס
+                            התחבר
                         </button>
-                        <p className={style.connected}>
-                            התחברת כבר?
-                            <br />
-                            <a href="/manager" className={style.link}>כנס</a>
-                        </p>
+                        {currentAdmin &&
+                            <>
+                                <p className={style.connected}>
+                                    התחברת כבר?
+                                    <br />
+                                    <a href="/manager" className={style.link}>כנס</a>
+                                </p>
+                                <p className={style.connected}>
+                                    לצאת מהחשבון?
+                                    <br />
+                                    <span className={style.link} onClick={handleLogout}>צא</span>
+                                </p>
+                            </>}
                     </form>
                 </section>
             </div>

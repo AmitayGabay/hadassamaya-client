@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
 import Sliders from "../../sliders/Sliders";
 import Title from "../../title/Title";
 import Text from "../../text/Text";
@@ -14,6 +14,7 @@ import style from './Home.module.css';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import CustomButton from '../../customButton/CustomButton';
+import AdminContext from '../../../shared/contexts/AdminContext';
 
 const questions = [
     {
@@ -60,6 +61,8 @@ const questions = [
 
 
 const Home = () => {
+    const { currentAdmin, isRequestCompleted } = useContext(AdminContext);
+
     const sectionRef = useRef(null);
 
     const scrollToContactSection = () => {
@@ -67,17 +70,17 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <div className={style.homeContainer}>
             <Header />
-            <div className={style.contactButton}>
+            {(isRequestCompleted && !currentAdmin) && <div className={style.contactButton}>
                 <CustomButton text='צרו קשר' func={scrollToContactSection} />
-            </div>
+            </div>}
             <section className={style.oneSection}>
                 <Text textsArr={[
-                    `"הכוח שבנו" היא סדנה חוויתית ומהנה, המספקת לנערות הכוונה וכלים ליצירת קשרים חברתיים והתכווננות מחודשת לקראת שנת הלימודים החדשה.`,
-                    `לאורך השנים בעבודתנו עם ילדות ונערות, מצאנו כי הן חשופות לפגיעות שונות בבית הספר והחברה, לא מוזמנות לאירועים חברתיים, נוטות להיות יותר ברשתות החברתיות ופחות במפגשים ומתקשות לייצר חברויות יציבות ובריאות עם סביבתן.`,
-                    `מהסיבה הזו פיתחנו סדנה שתעצים אותן ותיתן להן כלים וטכניקות להתמודדות עם הסיטואציות השונות בחיי היום יום.`,
-                    `מטרת הסדנה היא לאפשר שיח עמוק בגובה העיניים, לעודד חשיבה יצירתית ואמיצה, לחזק את הביטחון העצמי, להקנות כלים להתמודדות עם קונפליקטים בכיתה וסיטוצאיות מורכבות. בתקופת גיל ההתבגרות הנערות מגבשות את זהותן ולכן חשוב במיוחד לפתח אצלן את המיומנות להקשיב לקולן הפנימי.`
+                    `הסדנאות שלנו מועברות בצורה חווייתית ומהנה, דרך משחק, שיח פתוח ומאפשר ותרגול סימולציות מחיי היומיום שלהן. הן מספקות לנערות הכוונה וכלים ליצירת קשרים חברתיים בריאים ולחיזוק הדימוי העצמי החברתי שלהן. חלק מהסדנאות מועברות בשילוב טיפול באמצעות כלבים / סוסים.`,
+                    `לאורך השנים בעבודתנו עם נערות, מצאנו כי הן עלולות להיות חשופות לפגיעות שונות בבית הספר ובחברה. בעקבות כך הן פחות נוכחות במפגשים חברתיים, מעדיפות לבלות את מרבית זמנן מול המסך בבית, ומתקשות לייצר חברויות יציבות ובריאות עם סביבתן.`,
+                    `מסיבה זו פיתחנו סדנאות שיעצימו אותן ויתנו להן כלים וטכניקות מעולם ה-NLP להתמודדות נכונה יותר בחיי היום יום.`,
+                    `מטרת הסדנאות הינה לאפשר שיח עמוק בגובה העיניים, לעודד חשיבה יצירתית ואמיצה, לחזק את הביטחון העצמי, להקנות כלים להתמודדות עם קונפליקטים בכיתה ועם סיטואציות חברתיות מורכבות. בתקופת גיל ההתבגרות הנערות מגבשות את זהותן ולכן חשוב במיוחד לפתח אצלן את המיומנות להקשיב לקולן הפנימי.`
                 ]}>
                 </Text>
             </section>
@@ -85,7 +88,7 @@ const Home = () => {
             <Main />
             <section className={style.secondSection}>
                 <BorderLine />
-                <Title titlesArr={[
+                <Title padding='24px' titlesArr={[
                     { h2: "דוגמה לסדנה לנערות" }
                 ]} />
                 <div className={style.flexBox}>
@@ -125,11 +128,11 @@ const Home = () => {
                 <BorderLine />
             </section>
             <section className={style.thirdSection}>
-                <Title titlesArr={[
+                <Title padding='24px' titlesArr={[
                     { h2: "מי אנחנו?" }
                 ]} />
                 <div className={style.imgFlexBox}>
-                    <Card>
+                    <Card className={style.card} elevation={12}>
                         <div className={style.imgBox}>
                             <img className={style.img} src={hadassaPic} width={200} height={200} alt="pic" />
                             <Title titlesArr={[
@@ -141,7 +144,7 @@ const Home = () => {
                             ]} />
                         </div>
                     </Card>
-                    <Card>
+                    <Card className={style.card} elevation={12}>
                         <div className={style.imgBox}>
                             <img className={style.img} src={mayaPic} width={200} height={200} alt="pic" />
                             <Title titlesArr={[
@@ -157,7 +160,7 @@ const Home = () => {
             </section>
             <section className={style.commonQuestions}>
                 <BorderLine />
-                <Title titlesArr={[
+                <Title padding='24px' titlesArr={[
                     { h2: "שאלות נפוצות" }
                 ]} />
                 <div className={style.questions}>

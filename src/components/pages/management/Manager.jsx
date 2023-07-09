@@ -51,6 +51,21 @@ const Manager = () => {
         }
     }
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        // Update the window width state when the window is resized
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <>
             {(isRequestCompleted && currentAdmin)
@@ -63,12 +78,12 @@ const Manager = () => {
                             <table>
                                 <thead>
                                     <tr className={style.headOfTable}>
-                                        <th className={style.th}>מספר לקוח</th>
+                                        {(windowWidth > 625) && <th className={style.th}>מספר לקוח</th>}
                                         <th className={style.th}>שם פרטי</th>
                                         <th className={style.th}>שם משפחה</th>
                                         <th className={style.th}>נייד</th>
                                         <th className={style.th}>מייל</th>
-                                        <th className={style.th}>תוכן הפנייה</th>
+                                        {(windowWidth > 1250) && <th className={style.th}>תוכן הפנייה</th>}
                                         <th className={style.th}>סמן כטופל</th>
                                         <th className={style.th}>מחק לקוח</th>
                                     </tr>
@@ -76,23 +91,23 @@ const Manager = () => {
                                 <tbody>
                                     {clients?.map((client, index) =>
                                         <tr key={index} className={style.regular}>
-                                            <td className={style.td}>{globalIndex++}</td>
+                                            {(windowWidth > 625) && <td className={style.td}>{globalIndex++}</td>}
                                             <th className={style.th}>{client.firstName}</th>
                                             <th className={style.th}>{client.lastName}</th>
                                             <th className={style.th}>{client.phone}</th>
                                             <th className={style.th}>{client.email}</th>
-                                            <td className={style.td}>{client.message}</td>
+                                            {(windowWidth > 1250) && <td className={style.td}>{client.message}</td>}
                                             <td className={`${style.td} ${style.done}`} onClick={() => editClient(client._id)}><HowToRegIcon color='inherit' /></td>
                                             <td className={`${style.td} ${style.clear}`} onClick={() => deleteClient(client)}><ClearIcon color='error' /></td>
                                         </tr>)}
                                     {editedClients?.map((editedClient, index) =>
                                         <tr key={index} className={style.edited}>
-                                            <td className={style.td}>{globalIndex++}</td>
+                                            {(windowWidth > 625) && <td className={style.td}>{globalIndex++}</td>}
                                             <th className={style.th}>{editedClient.firstName}</th>
                                             <th className={style.th}>{editedClient.lastName}</th>
                                             <th className={style.th}>{editedClient.phone}</th>
                                             <th className={style.th}>{editedClient.email}</th>
-                                            <td className={style.td}>{editedClient.message}</td>
+                                            {(windowWidth > 1250) && <td className={style.td}>{editedClient.message}</td>}
                                             <td className={style.td}><DoneIcon color='success' /></td>
                                             <td className={`${style.td} ${style.clear}`} onClick={() => deleteClient(editedClient)}><ClearIcon color='error' /></td>
                                         </tr>)}

@@ -18,7 +18,7 @@ const Sliders = () => {
                 <div className="carousel-inner">
                     <div className="one carousel-item active">
                         <div className={style.oneImg}></div>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-sm-block">
                             <Title titlesArr={[
                                 { h3: "הדבר היחיד שהוא יותר גרוע מלהתחיל ולהיכשל, הוא לא להתחיל בכלל" }
                             ]} />
@@ -29,7 +29,7 @@ const Sliders = () => {
                     </div>
                     <div className="two carousel-item">
                         <div className={style.twoImg}></div>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-sm-block">
                             <Title titlesArr={[
                                 { h3: "מוטיבציה היא מה שגורם לך להתחיל, הרגל גורם לך להמשיך" }
                             ]} />
@@ -40,7 +40,7 @@ const Sliders = () => {
                     </div>
                     <div className="three carousel-item">
                         <div className={style.threeImg}></div>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-sm-block">
                             <Title titlesArr={[
                                 { h3: "אתה לא יכול לשנות את הקלפים שחילקו לך, אבל אתה יכול לשחק איתם חכם" }
                             ]} />

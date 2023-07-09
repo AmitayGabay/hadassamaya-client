@@ -14,3 +14,16 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media (max-width:1250px) {
+    .wrapsDetails {
+        max-width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .details {
+        flex: 60%;
+        margin-bottom: 24px;
+    }
+}

@@ -1,7 +1,13 @@
+.homeContainer {
+    width: 100%;
+    background: black;
+}
+
 .contactButton {
     position: fixed;
     top: 85px;
-    z-index: 1;
+    right: 0;
+    z-index: 100;
 }
 
 .oneSection {
@@ -15,11 +21,11 @@
 }
 
 .flexBox {
+    padding: 8px;
     margin: 0 auto;
-    width: 800px;
+    max-width: 800px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 8px;
 }
 
@@ -53,11 +59,12 @@
 
 .imgFlexBox {
     margin: 0 auto;
-    width: 800px;
+    max-width: 800px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 48px;
     padding-bottom: 16px;
+    padding: 8px;
 }
 
 .imgBox {
@@ -78,8 +85,9 @@
 
 .questions {
     margin: 0 auto;
-    width: 800px;
-    padding-bottom: 24px;
+    max-width: 800px;
+    padding: 24px;
+    padding-top: 0;
 }
 
 .gallery {
@@ -89,4 +97,32 @@
 
 .contact {
     background: rgb(151, 214, 208);
+}
+
+@media (max-width: 1250px) {
+    .flexBox {
+        flex-wrap: wrap;
+    }
+
+    .box {
+        flex: 40%;
+    }
+
+    .imgFlexBox {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 40%;
+    }
+}
+
+@media (max-width: 625px) {
+    .box {
+        flex: 80%;
+    }
+
+    .card {
+        flex: 80%;
+    }
 }

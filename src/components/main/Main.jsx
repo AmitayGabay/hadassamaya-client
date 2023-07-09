@@ -8,8 +8,7 @@ const Main = () => {
     return (
         <main className={style.main} >
             <Text textsArr={[
-                `במיוחד בימים אלו, שהמפגשים החברתיים הפיזיים מועטים ודרכי התקשורת שלנו ברובן דרך הרשת החברתית`,
-                `הנערות זקוקות מאוד לתקשורת ישירה, לשיח מפרה ולעידוד מפגש רגשי עם האחר.`
+                `במיוחד בימים אלו, שהמפגשים החברתיים הפיזיים מועטים ודרכי התקשורת שלנו ברובן דרך הרשת החברתית, הנערות זקוקות מאוד לתקשורת ישירה, לשיח מפרה ולעידוד מפגש רגשי עם האחר.`
             ]}></Text>
             <Title titlesArr={[
                 { h2: "אז מה בסדנה?" }
@@ -45,7 +44,7 @@ const Main = () => {
             ]} />
             <div className={style.flexBox}>
                 <div className={style.wrapsDetails}>
-                    <div>
+                    <div className={style.details}>
                         <Title titlesArr={[
                             { h5: "איפה הסדנה תתקיים?" }
                         ]} />
@@ -53,16 +52,16 @@ const Main = () => {
                             `📌פתח תקווה - א.ד גורדון 23`
                         ]} />
                     </div>
-                    <div>
+                    <div className={style.details}>
                         <Title titlesArr={[
                             { h5: "⏱️ימים ושעות?" }
                         ]} />
-                        <Text textsArr={[
+                        <Text textAlign='center' textsArr={[
                             `18-20.7.2023`,
                             `בין השעות 10:00-13:00`
                         ]} />
                     </div>
-                    <div>
+                    <div className={style.details}>
                         <Title titlesArr={[
                             { h5: "💸ההשקעה:" }
                         ]} />

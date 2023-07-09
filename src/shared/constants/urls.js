@@ -7,6 +7,7 @@ const CREATE_CLIENT_URL = CLIENT_URL;
 
 // admin
 const ADMIN_LOGIN_URL = ADMIN_URL + "login/";
+const ADMIN_LOGOUT_URL = ADMIN_URL + "logout/";
 const GET_CURRENT_ADMIN_URL = ADMIN_URL + "get-current/";
 const GET_CLIENTS_URL = ADMIN_URL + "get-clients/";
 const ADMIN_EDIT_CLIENT_URL = ADMIN_URL + "edit-client/";
@@ -18,6 +19,7 @@ export {
     CREATE_CLIENT_URL,
     // admin
     ADMIN_LOGIN_URL,
+    ADMIN_LOGOUT_URL,
     GET_CURRENT_ADMIN_URL,
     GET_CLIENTS_URL,
     ADMIN_EDIT_CLIENT_URL,

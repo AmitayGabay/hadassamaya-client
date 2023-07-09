@@ -1,9 +1,9 @@
 import React from 'react';
 import style from "./Text.module.css";
 
-const Text = ({ textsArr }) => {
+const Text = ({ textsArr, textAlign = "unset" }) => {
     return (
-        <div className={style.wrapsTexts}>
+        <div style={{ textAlign: textAlign }} className={style.wrapsTexts}>
             <div className={style.text}>
                 {textsArr.map((text, index) =>
                     <p key={index}>{text}</p>

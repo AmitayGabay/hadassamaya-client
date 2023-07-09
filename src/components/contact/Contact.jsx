@@ -65,9 +65,9 @@ const Contact = () => {
             setMessage('');
         } catch (error) {
             if (!error.response) {
-                setErrorMessage('No Server Response');
+                setErrorMessage('השרת אינו מגיב');
             } else {
-                setErrorMessage('Connection Failed')
+                setErrorMessage('שליחת הפרטים נכשלה')
             }
             errorRef.current.focus();
         }
@@ -76,7 +76,7 @@ const Contact = () => {
         <div className={style.flexBox}>
             {success ? (
                 <section className={style.section}>
-                    <Title titlesArr={[
+                    <Title padding="16px" titlesArr={[
                         { h2: "פרטיך נקלטו בהצלחה במערכת" },
                         { h3: "נחזור אליך בהקדם האפשרי" },
                         { h4: "תודה!" }
@@ -89,42 +89,36 @@ const Contact = () => {
                         { h2: "השאירו פרטים ונחזור אליכם" }
                     ]} />
                     <form className={style.form} onSubmit={handleSubmit}>
-                        <div className={style.names}>
-                            <div className={style.name}>
-                                <label className={style.label} htmlFor="firstname">*שם פרטי:</label>
-                                <input className={style.nameInput}
-                                    type="text"
-                                    id="firstname"
-                                    autoComplete="off"
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                    value={firstName}
-                                    required
-                                    onFocus={() => setFirstNameFocus(true)}
-                                    onBlur={() => setFirstNameFocus(false)}
-                                />
-                                <p id="uidnote" className={firstNameFocus && firstName.trim().length < 2 ? `${style.instructions}` : `${style.offscreen}`}>
-                                    <FontAwesomeIcon icon={faInfoCircle} />
-                                    שם פרטי הוא שדה חובה.
-                                </p>
-                            </div>
-                            <div className={style.name}>
-                                <label className={style.label} htmlFor="lastname">*שם משפחה:</label>
-                                <input className={style.nameInput}
-                                    type="text"
-                                    id="lastname"
-                                    autoComplete="off"
-                                    onChange={(e) => setLastName(e.target.value)}
-                                    value={lastName}
-                                    required
-                                    onFocus={() => setLastNameFocus(true)}
-                                    onBlur={() => setLastNameFocus(false)}
-                                />
-                                <p id="uidnote" className={lastNameFocus && lastName.trim().length < 2 ? `${style.instructions}` : `${style.offscreen}`}>
-                                    <FontAwesomeIcon icon={faInfoCircle} />
-                                    שם משפחה הוא שדה חובה.
-                                </p>
-                            </div>
-                        </div>
+                        <label className={style.label} htmlFor="firstname">*שם פרטי:</label>
+                        <input className={style.input}
+                            type="text"
+                            id="firstname"
+                            autoComplete="off"
+                            onChange={(e) => setFirstName(e.target.value)}
+                            value={firstName}
+                            required
+                            onFocus={() => setFirstNameFocus(true)}
+                            onBlur={() => setFirstNameFocus(false)}
+                        />
+                        <p id="uidnote" className={firstNameFocus && firstName.trim().length < 2 ? `${style.instructions}` : `${style.offscreen}`}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            שם פרטי הוא שדה חובה.
+                        </p>
+                        <label className={style.label} htmlFor="lastname">*שם משפחה:</label>
+                        <input className={style.input}
+                            type="text"
+                            id="lastname"
+                            autoComplete="off"
+                            onChange={(e) => setLastName(e.target.value)}
+                            value={lastName}
+                            required
+                            onFocus={() => setLastNameFocus(true)}
+                            onBlur={() => setLastNameFocus(false)}
+                        />
+                        <p id="uidnote" className={lastNameFocus && lastName.trim().length < 2 ? `${style.instructions}` : `${style.offscreen}`}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            שם משפחה הוא שדה חובה.
+                        </p>
                         <label className={style.label} htmlFor="phone">*נייד:
                             <FontAwesomeIcon icon={faCheck} className={validPhone ? `${style.valid}` : `${style.hide}`} />
                             <FontAwesomeIcon icon={faTimes} className={validPhone || !phone ? `${style.hide}` : `${style.invalid}`} />

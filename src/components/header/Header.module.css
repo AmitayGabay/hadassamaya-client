@@ -1,18 +1,52 @@
 .header {
-    min-height: 200px;
+    min-height: 150px;
     background: #ccb490;
-}
-
-.logo {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .admin {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 200px;
-    width: 200px;
+    flex: 0.25;
+}
+
+.title {
+    flex: 1;
+}
+
+.logo {
+    flex: 0.25;
+    background-image: url("../../shared/assets/images/logo.png");
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+}
+
+@media (max-width: 625px) {
+    .admin {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 425px) {
+    .admin {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
 }

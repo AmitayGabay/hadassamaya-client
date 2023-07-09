@@ -1,6 +1,6 @@
 .flexBox {
     margin: 0 auto;
-    width: 1100px;
+    max-width: 1100px;
     min-height: 400px;
     display: flex;
     justify-content: space-between;
@@ -14,13 +14,13 @@
     justify-content: flex-start;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.4);
+    min-height: 400px;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* flex-grow: 1; */
     padding-bottom: 1rem;
 }
 
@@ -48,17 +48,6 @@
 .button {
     padding: 0.5rem;
     cursor: pointer
-}
-
-.names {
-    display: flex;
-}
-
-.nameInput {
-    font-family: 'Nunito', sans-serif;
-    font-size: 19px;
-    padding: 0.25rem;
-    border-radius: 0.5rem;
 }
 
 .instructions {
@@ -110,6 +99,7 @@
     gap: 16px;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.4);
+    min-height: 400px;
 }
 
 .card {
@@ -158,4 +148,21 @@
 .instagramIcon:hover {
     color: #7b1fa2;
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width:1250px) {
+    .flexBox {
+        max-width: 600px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section {
+        flex: 60%;
+        margin-bottom: 24px;
+    }
+
+    .detailsSection {
+        flex: 60%;
+    }
 }

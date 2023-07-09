@@ -10,12 +10,10 @@
     width: 100%;
     border: none;
     border-radius: 12px;
-    font-size: 16px;
     transition: 0.5s;
     margin-bottom: 8px;
     box-shadow: 5px 5px 15px 5px #000000;
     text-align: right;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
 }
 
