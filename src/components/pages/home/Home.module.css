@@ -16,7 +16,7 @@
 
 .secondSection {
     min-height: 350px;
-    background: rgb(151, 214, 208);
+    background: #fff;
 }
 
 .flexBox {
@@ -48,7 +48,7 @@
 }
 
 .purple {
-    background: rgb(117, 11, 162);
+    background: #9c27b0;
 }
 
 .thirdSection {

@@ -18,8 +18,8 @@
 .boxClicked {
     height: 500px;
     width: 500px;
-    position: absolute;
-    top: 3845px;
+    position: fixed;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     border: dotted black 2px;
