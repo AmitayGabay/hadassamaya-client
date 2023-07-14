@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:7000/";
+// const BASE_URL = "http://localhost:7000/";
+const BASE_URL = "https://hadassamaya.onrender.com/";
 const CLIENT_URL = BASE_URL + "client/";
 const ADMIN_URL = BASE_URL + "admin/";
 

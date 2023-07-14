@@ -95,7 +95,7 @@ function Login() {
                         {currentAdmin &&
                             <>
                                 <p className={style.connected}>
-                                    התחברת כבר?
+                                    מחובר כבר?
                                     <br />
                                     <a href="/manager" className={style.link}>כנס</a>
                                 </p>
