@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     getCurrentAdmin();
-  }, []);
+  });
 
   return (
     <AdminContext.Provider value={{ currentAdmin, updateCurrentAdmin, isRequestCompleted }}>
