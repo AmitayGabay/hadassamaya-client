@@ -10,7 +10,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { apiPost } from "../../shared/services/apiRequests";
 import { CREATE_CLIENT_URL } from "../../shared/constants/urls";
 
-const PHONE_REGEX = /^(\+972|0)(\-)?(([23489]{1}\d{7})|([5]{1}[0123456789]{1}\d{7})|([77]{2}\d{7})|([8]{1}[5789]{1}\d{7})|([9]{1}[0-689]{1}\d{7}))$/;
+const PHONE_REGEX = /^(\+972|0)()?(([23489]{1}\d{7})|([5]{1}[0123456789]{1}\d{7})|([77]{2}\d{7})|([8]{1}[5789]{1}\d{7})|([9]{1}[0-689]{1}\d{7}))$/;
 const EMAIL_REGEX = /^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
 
 const Contact = () => {
