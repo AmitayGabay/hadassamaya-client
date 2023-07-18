@@ -46,10 +46,10 @@ function Login() {
 
     const handleLogout = async () => {
         try {
-            const res = await logout(ADMIN_LOGOUT_URL);
-            console.log(res);
+            await logout(ADMIN_LOGOUT_URL);
             updateCurrentAdmin(null);
             navigate("/");
+            window.location.reload();
         } catch (e) {
             if (!e.response) {
                 setErrorMessage("השרת אינו מגיב");
