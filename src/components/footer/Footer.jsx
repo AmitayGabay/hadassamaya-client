@@ -14,7 +14,7 @@ const Footer = () => {
                 <CustomButton text={"לראש העמוד"} func={scrollToTop} />
             </div>
             <div>
-                <p className={style.p}>2023 by Amitay-Code ©</p>
+                <p className={style.p}>2023 by Amitay-Gabay ©</p>
             </div>
         </div>
     )
