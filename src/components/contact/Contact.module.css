@@ -111,12 +111,12 @@
 }
 
 .details {
-    width: 200px;
+    width: 250px;
     text-align: center;
 }
 
 .p {
-    font-size: large;
+    font-size: x-large;
     font-weight: 600;
 }
 
@@ -131,6 +131,7 @@
 }
 
 .wrapsIcons {
+    padding-top: 24px;
     display: flex;
     justify-content: space-between;
 }

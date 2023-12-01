@@ -26,8 +26,8 @@ const Header = () => {
             <div className={style.title}>
                 <Title titlesArr={[
                     { h1: "הכוח שבנו" },
-                    { h3: "סדנאות NLP קבוצתיות" },
-                    { h2: "בוסט ביטחון עצמי לנערות" }
+                    { h2: "סדנאות NLP" },
+                    { h3: "לילדים ובני נוער" }
                 ]} />
             </div>
             <div className={style.logo} onClick={navigateToHomePage}>
